@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+
+
+    <noscript>
+        JavaScript is Disabled
+    </noscript>
+
+</head>
+<style>
+    @font-face {
+        font-family: 'entity';
+        src: url("Entities.ttf");
+    }
+    
+    @font-face {
+        font-family: 'head_font';
+        src: url("heading.ttf");
+    }
+    
+    @font-face {
+        font-family: 'btn';
+        src: url("button.ttf");
+    }
+    
+    form {
+        position: relative;
+        background: #0F2027;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        width: 250px;
+        height: 300px;
+        box-shadow: 10px 2px 15px black;
+        border-radius: 20px;
+    }
+    
+    .heading {
+        font-family: 'head_font';
+        margin-top: 5;
+        color: #00dbde;
+        text-shadow: 10px 2px 20px #00dbde;
+    }
+    
+    #msg {
+        height: 50px;
+        color: antiquewhite;
+    }
+    
+    #btn {
+        font-family: 'entity';
+        font-size: 15px;
+        background-color: #00dbde;
+        padding: 10px 35px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.4s;
+        background-size: 200% auto;
+        border-radius: 10px;
+        display: block;
+        border: none;
+    }
+    
+    #btn:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0px 0px 20px #00dbde;
+    }
+    
+    #label {
+        text-transform: capitalize;
+        font-family: 'entity';
+        color: whitesmoke;
+    }
+    
+    #msg {
+        font-family: 'entity';
+        font-size: 25px;
+    }
+    
+    #height,
+    #mass {
+        width: 50px;
+        border-radius: 10px;
+        border: none;
+    }
+    
+    #height:focus,
+    #mass:focus {
+        width: 50px;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0px 0px 20px #00dbde;
+    }
+</style>
+
+<body>
+    <center>
+        <form class="number-form">
+            <div class="heading">
+                <br>
+                <h1>BMI CALCULATOR</h1>
+            </div>
+            <span id="label">HEIGHT(Cm):&ensp;</span><input type="text" id="height"><br><br>
+            <span id="label">WEIGHT(Kg):&ensp;</span><input type="text" id="mass"><br><br>
+            <input id="btn" type="button" value="Get BMI" onclick="calc()">
+            <p id="msg"></p>
+        </form>
+    </center>
+    <script type="text/javascript">
+        function calc() {
+            let w = parseFloat(document.getElementById('mass').value);
+            let h = (parseFloat(document.getElementById('height').value)) / 100;
+
+            let ans;
+            ans = w / (h * h);
+
+            msg = "BMI: " + ans.toFixed(2);
+            document.getElementById("msg").innerHTML = msg;
+        }
+    </script>
+</body>
+
+</html>
