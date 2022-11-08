@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVEN ODD AND PRIME</title>
+    <noscript>
+        JavaScript is Disabled
+    </noscript>
+
+</head>
+<style>
+    body{
+        font-family: monospace;
+    }
+    form{
+        background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        font-family: monospace;
+        margin-top: 2%;
+        width:500px;
+        height: 280px;
+        box-shadow: 0px 0px 15px black;
+        border-radius: 20px;
+
+       
+    }
+    h1{
+        color:#E94057;
+        font-size:26px;
+        text-shadow: 0 0 25px #E94057;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+
+    }
+    #num{
+        outline: none;
+        border:none;
+        border-radius:20px;
+        text-align: center;
+        font-family: monospace;
+        font-size:15px;
+        height: 20px;
+        width: 150px;
+        text-transform: capitalize;
+        
+
+    }
+    #num:focus{
+        transform: scale(1.15);
+    }
+    #btn{
+        margin-top:20px;
+        background: #00dbde;  /* fallback for old browsers */
+       text-transform: uppercase;
+        border: none;
+        border-radius:20px;
+        font-family: monospace;
+        height: 25px;
+        width: 80px;
+        color:white;
+        
+    }
+    #btn:hover{
+        box-shadow: 0 0 20px #02e8ec;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+    #msg{
+        font-family: monospace;
+        text-transform: capitalize;
+        color:white;
+        font-size: 18px;
+        letter-spacing: 2px;
+        text-shadow: 0 0 25px white;
+    }
+</style>
+<body>
+    <center>
+        <br>
+        <form class="number-form">
+            <br>
+            <div class="heading">
+                <h1>Even, Odd and Prime Number checker! </h1>
+            </div>
+        <br>
+            <input type="text" placeholder="Enter the number" id="num">
+            <br>
+        <input type="button" id="btn" value="CHECK" onclick="check()">
+        <p id="msg" ></p>    
+    
+    </form>
+    </center>
+    <script  type="text/javascript">
+        function check(){
+        let n = document.getElementById("num").value;
+        let c = 2;
+        let even = false;
+        let prime = true;
+        let odd = false;
+        let msg;
+
+        if(n==1){
+            msg = "Number "+n+" is neither prime nor compositte and odd number";
+            document.getElementById("msg").innerHTML = msg;
+        }
+        if(n==2 ){
+            msg = ("Number "+n+" is prime and even number");
+            document.getElementById("msg").innerHTML = msg;
+        }
+        
+        while (c*c <= n) {
+            if (n%2!=0 ){
+                odd = true;
+                if(n%c==0){
+                    prime=false;
+                    break
+                }
+                else{
+                    c++;
+                }
+            }
+            else{
+                even = true;
+                prime=false;
+                break;
+                
+            }
+        }
+        if(even==true && prime==false){
+            msg = ("Number "+n+" is even and not prime");
+            document.getElementById("msg").innerHTML = msg;
+        }
+        else if(odd==true && prime==true){
+            msg =("Number "+n+" is odd and prime");
+            document.getElementById("msg").innerHTML = msg;
+        }
+        else if(odd==true && prime==false){
+            msg =("Number "+n+" is odd and not prime");
+            document.getElementById("msg").innerHTML = msg;
+        }
+    }
+    </script>
+</body>
+</html>
